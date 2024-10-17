@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top">
     <div class="container-fluid">
-        <div class="navbarLOGO col-md-2"><a class="navbar-brand" href="#"><img src="./images/logo-removebg.png" alt="LOGO" class="img-fluid"></a></div>
+        <div class="navbarLOGO col-md-2"><a class="navbar-brand" href="./index_hp.php"><img src="./images/logo-removebg.png" alt="LOGO" class="img-fluid"></a></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,7 +27,7 @@
                                 ?>
                                 <ul class="dropdown-menu dropSecond">
                                     <?php while ($pyclass02_Rows = $pyclass02->fetch()) { ?>
-                                        <li><a class="dropdown-item" href="#"><?php echo $pyclass02_Rows['cname']; ?></a></li>
+                                        <li><a class="dropdown-item" href="furniture.php?classid=<?php echo $pyclass02_Rows['classid'] ?>"><?php echo $pyclass02_Rows['cname']; ?></a></li>
                                     <?php } ?>
                                 </ul>
                             </li>
