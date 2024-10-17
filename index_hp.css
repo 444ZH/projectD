@@ -135,11 +135,7 @@ section#content {
   transform: scale(1.1);
 }
 
-/* .newProduct{
-  padding-top: 50px;
-  border: 1px solid #000;
-  box-sizing: border-box;
-} */
+
 .newTitle{
   text-align: center;
   font-weight: bold;
@@ -154,6 +150,7 @@ section#content {
 .allProduct{
   text-align: center;
   font-weight: bold;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
