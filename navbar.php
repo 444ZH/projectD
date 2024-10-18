@@ -55,9 +55,9 @@
         </div>
         <div class="collapse navbar-collapse col-md-2">
             <ul class="navbar-nav ms-auto d-flex align-items-center">
-                <form action="" method="get">
+                <form action="./furniture.php" method="get" name="search" id="search">
                     <div class="input-group d-flex align-items-center">
-                        <input type="text" name="search_name" class="form-control" placeholder="Search...">
+                        <input type="text" name="search_name" class="form-control" placeholder="Search" value="<?php echo (isset($_GET['search_name'])) ? $_GET['search_name'] : ''; ?>" required>
                         <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button></span>
                     </div>
                 </form>
