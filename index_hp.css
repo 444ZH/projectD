@@ -141,6 +141,11 @@ section#content {
   margin-bottom: 50px;
 }
 
+.badge.rounded-pill{
+  font-size: 10px;
+}
+
+
 
 /* seccontent */
 #seccontent{

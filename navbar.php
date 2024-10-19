@@ -1,16 +1,19 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top">
     <div class="container-fluid">
-        <div class="navbarLOGO col-md-2"><a class="navbar-brand" href="./index_hp.php"><img src="./images/logo-removebg.png" alt="LOGO" class="img-fluid"></a></div>
+        <div class="navbarLOGO col-md-3"><a class="navbar-brand" href="./index_hp.php"><img src="./images/logo-removebg.png" alt="LOGO" class="img-fluid"></a></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <?php
+        //讀取後台購物車內產品數量
+        $SQLstring = "SELECT * FROM cart WHERE orderid IS NULL AND ip = '".$_SERVER['REMOTE_ADDR']."'";
+        $cart_rs = $link -> query($SQLstring);
         // 列出產品類別第一層
         $SQLstring = "SELECT * FROM pyclass WHERE level = 1 ORDER BY sort";
         $pyclass01 = $link->query($SQLstring);
         ?>
-        <div class="collapse navbar-collapse col-md-8" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse col-md-6" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +56,7 @@
                 </li>
             </ul>
         </div>
-        <div class="collapse navbar-collapse col-md-2">
+        <div class="collapse navbar-collapse col-md-3">
             <ul class="navbar-nav ms-auto d-flex align-items-center">
                 <form action="./furniture.php" method="get" name="search" id="search">
                     <div class="input-group d-flex align-items-center">
@@ -63,7 +66,7 @@
                 </form>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
+                    <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="badge rounded-pill text-bg-dark"><?php echo ($cart_rs) ? $cart_rs -> rowCount() : ''; ?></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-regular fa-user fa-lg"></i></a>

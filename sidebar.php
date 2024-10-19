@@ -15,8 +15,8 @@
                     </button>
                 </h2>
                 <?php
-                //使用第一層類別查詢
                 if(isset($_GET['level']) && $_GET['level'] == 1){
+                    //使用第一層類別查詢
                     $ladder = $_GET['classid'];
                 }elseif(isset($_GET['classid'])){    //如果使用類別查詢需取得上一層類別
                     $SQLstring = sprintf("SELECT uplink FROM pyclass WHERE level = 2 AND classid = %d", $_GET['classid']);
