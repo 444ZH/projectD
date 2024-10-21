@@ -66,7 +66,7 @@
                 </form>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="badge rounded-pill text-bg-dark"><?php echo ($cart_rs) ? $cart_rs -> rowCount() : ''; ?></span></a>
+                    <a class="nav-link" href="./cart.php"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="badge rounded-pill text-bg-dark"><?php echo ($cart_rs) ? $cart_rs -> rowCount() : ''; ?></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-regular fa-user fa-lg"></i></a>
