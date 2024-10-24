@@ -68,9 +68,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./cart.php"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="badge rounded-pill text-bg-dark"><?php echo ($cart_rs) ? $cart_rs -> rowCount() : ''; ?></span></a>
                 </li>
+                <?php if(isset($_SESSION['login'])) { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-regular fa-user fa-lg"></i></a>
+                    <a class="nav-link" href="javascript:void(0)" onclick="btn_confirmLink('是否確定登出?','logout.php')">登出</a>
                 </li>
+                <?php }else{ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="./login.php"><i class="fa-regular fa-user fa-lg"></i></a>
+                </li>
+                <?php } ?>
+
             </ul>
         </div>
     </div>
