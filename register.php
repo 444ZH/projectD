@@ -96,33 +96,27 @@ if (isset($_SESSION['login'])) {
             ?>
             <h4 class="registerTitle">註冊會員</h4>
             <div class="row col-md-5 mx-auto mt-5">
-
-
-            <?php 
-if (isset($_POST['formctl']) && $_POST['formctl'] == "reg"){
-    $email = $_POST['email'];
-    $cname = $_POST['cname'];
-    $mobile = $_POST['mobile'];
-    $pw1 = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
-    $insertsql = "INSERT INTO member (email, pw1, cname) VALUES ('".$email."', '".$pw1."', '".$cname."')";
-    $result = $link -> query($insertsql);
-    $emailid = $link -> lastInsertId(); //新增會員編號
-    if($result){
-        //將會員資料寫入addbook
-        $insertsql = "INSERT INTO addbook (emailid, setdefault, cname, mobile) VALUES ('".$emailid."', '1','".$cname."', '".$mobile."')";
-        $result = $link -> query($insertsql);
-        $_SESSION['login'] = true;  //設定會員註冊成功直接登入
-        $_SESSION['emailid'] = $emailid;
-        $_SESSION['email'] = $email;
-        $_SESSION['cname'] = $cname;
-        echo "<script>alert('會員註冊成功'); location.href='index_hp.php';</script>";
-    }
-
-}
-?>
-
-
-
+                <?php
+                if (isset($_POST['formctl']) && $_POST['formctl'] == "reg") {
+                    $email = $_POST['email'];
+                    $cname = $_POST['cname'];
+                    $mobile = $_POST['mobile'];
+                    $pw1 = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
+                    $insertsql = "INSERT INTO member (email, pw1, cname) VALUES ('" . $email . "', '" . $pw1 . "', '" . $cname . "')";
+                    $result = $link->query($insertsql);
+                    $emailid = $link->lastInsertId(); //新增會員編號
+                    if ($result) {
+                        //將會員資料寫入addbook
+                        $insertsql = "INSERT INTO addbook (emailid, setdefault, cname, mobile) VALUES ('" . $emailid . "', '1','" . $cname . "', '" . $mobile . "')";
+                        $result = $link->query($insertsql);
+                        $_SESSION['login'] = true;  //設定會員註冊成功直接登入
+                        $_SESSION['emailid'] = $emailid;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['cname'] = $cname;
+                        echo "<script>alert('會員註冊成功'); location.href='index_hp.php';</script>";
+                    }
+                }
+                ?>
                 <form action="./register.php" id="reg" name="reg" method="post">
                     <span class="registerInfo ms-1">電子郵件地址</span><br>
                     <span class="remark ms-1">※電子郵件地址將作為登入帳號使用，請填寫正確資訊，以免喪失會員權益</span>
@@ -141,7 +135,6 @@ if (isset($_POST['formctl']) && $_POST['formctl'] == "reg"){
                     <span class="registerInfo ms-1 password">密碼</span><label class="togglePass"><input type="checkbox" id="togglePass">顯示密碼</label>
                     <div class="input-group mb-4 mx-auto d-flex flex-column gap-2 clearfix">
                         <input type="password" name="pw1" id="pw1" class="form-control w-100" placeholder="密碼">
-
                     </div>
                     <span class="registerInfo ms-1">確認密碼</span>
                     <div class="input-group mb-4 mx-auto d-flex flex-column">
@@ -160,8 +153,6 @@ if (isset($_POST['formctl']) && $_POST['formctl'] == "reg"){
                     </div>
                 </form>
             </div>
-
-
         </div>
     </section>
     <section id="footer">
