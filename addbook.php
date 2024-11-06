@@ -3,7 +3,10 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json;charset=utf-8");
 
 require_once('./connection/furnitureshop_db.php');
-(!isset($_SESSION)) ? session_start() : '';
+
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 
 if(isset($_SESSION['emailid']) && $_SESSION['emailid'] != ''){
     $emailid = $_SESSION['emailid'];

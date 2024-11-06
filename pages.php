@@ -6,7 +6,7 @@ if (isset($_GET['totalRows_rs'])) {
     $all_rs = $link->query($queryFirst);
     $totalRows_rs = $all_rs->rowCount();
 }
-$totalRows_rs = ceil($totalRows_rs / $maxRowS_rs) - 1;
+$totalRows_rs = ceil($totalRows_rs / $maxRows_rs) - 1;
 //呼叫分頁功能函數
 $prev_rs = "&laquo;";
 $next_rs = "&raquo;";

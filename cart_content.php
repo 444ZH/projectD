@@ -109,7 +109,6 @@ $ptotal = 0;    //設定累計總金額，初始為0
                 </tr>
             </thead>
             <tbody>
-
                 <tr class="">
                     <td colspan="5">
                         <div class="alert alert-warning my-4" role="alert">

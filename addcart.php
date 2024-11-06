@@ -2,7 +2,6 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json;charset=utf-8');
 
-
 require_once('./connection/furnitureshop_db.php');
 
 if(isset($_GET['p_id']) && isset($_GET['qty'])){

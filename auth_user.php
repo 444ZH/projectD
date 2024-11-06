@@ -1,8 +1,12 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json;charset=utf-8");
-(!isset($_SESSION) ? session_start() : '');
+
 require_once('./connection/furnitureshop_db.php');
+
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 
 if(isset($_POST['inputAccount']) && isset($_POST['inputPassword'])){
     $inputAccount = $_POST['inputAccount'];

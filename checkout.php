@@ -46,7 +46,7 @@ if (!isset($_SESSION['login'])) {
             width: fit-content;
         }
 
-        .orderStepTitle {
+        .checkoutTitle {
             border-top: 2px solid #ddd;
             text-align: center;
             margin-top: 20px;
@@ -61,7 +61,7 @@ if (!isset($_SESSION['login'])) {
             padding-top: 20px;
         }
 
-        .subtotal {
+        .color_red {
             color: red !important;
         }
 
@@ -72,10 +72,6 @@ if (!isset($_SESSION['login'])) {
 
         td.total {
             text-align: center;
-        }
-
-        .totalPrice {
-            color: red !important;
         }
 
         .modalBtn {
@@ -165,202 +161,8 @@ if (!isset($_SESSION['login'])) {
     <section id="seccontent">
         <div class="container">
             <!-- goods_content -->
-            <?php //require_once('./cart_content.php') 
+            <?php require_once('./checkout_content.php') 
             ?>
-
-            <div class="row col-md-12 mt-5 orderStep ">
-                <ul class="d-flex justify-content-center gap-5 orderStep">
-                    <li class="col-md-2 d-flex align-items-center gap-3">
-                        <span class="stepNum one">1</span>
-                        <span>查看購物車</span>
-                    </li>
-                    <li class="col-md-1 d-flex align-items-center stepArrow">
-                        <span>></span>
-                    </li>
-                    <li class="col-md-2 d-flex align-items-center gap-3">
-                        <span class="stepNum two">2</span>
-                        <span>確認訂單</span>
-                    </li>
-                    <li class="col-md-1 d-flex align-items-center stepArrow">
-                        <span>></span>
-                    </li>
-                    <li class="col-md-2 d-flex align-items-center gap-3">
-                        <span class="stepNum three">3</span>
-                        <span>訂單結算</span>
-                    </li>
-                </ul>
-            </div>
-
-            <h4 class="orderStepTitle">訂單詳情</h4>
-            <div class="row col-md-10 mx-auto chosePay">
-                <h5>選擇付款方式</h5>
-                <div>
-                    <input type="radio" id="payment1" name="payment" value="" checked>
-                    <label for="">貨到付款</label>
-                    <!-- <div class="paymentDetail" id="payDetail1">
-                        <p>貨到付款</p>
-                    </div> -->
-                </div>
-                <div>
-                    <input type="radio" id="payment2" name="payment" value="">
-                    <label for="">銀行轉帳</label>
-                    <div class="paymentDetail mx-auto my-2" id="payDetail2">
-                        <div class="card col-5">
-                            <img src="./images/taishin.jpg" class="img-fluid" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">ATM匯款資訊</h5>
-                                <p class="card-text">匯款銀行:台新國際商業銀行</p>
-                                <p class="card-text">姓名:OOO</p>
-                                <p class="card-text">匯款帳號:1234-5678-9012-1234</p>
-                                <p class="card-text">備註:匯款完成後，需要1-2個工作天，待系統入款完成後，將以簡訊通知訂單完成付款</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <input type="radio" id="payment3" name="payment" value="">
-                    <label for="">電子支付</label>
-                    <div class="paymentDetail my-2 epay" id="payDetail3" aria-labelledby="epay-tab">
-                        <table class="table caption-top text-center">
-                            <caption>選擇欲使用的電子支付</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">電子支付系統</th>
-                                    <th scope="col">電子支付公司</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="align-middle"><input type="radio" name="epay" id="epay[]" checked></th>
-                                    <td class="align-middle"><img src="./images/payment/Apple Pay Card.svg" alt="Visa"></td>
-                                    <td class="align-middle">Apple Pay</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="align-middle"><input type="radio" name="epay" id="epay[]"></th>
-                                    <td class="align-middle"><img src="./images/payment/linepay.png" alt="Mastercard"></td>
-                                    <td class="align-middle">Line Pay</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="align-middle"><input type="radio" name="epay" id="epay[]"></th>
-                                    <td class="align-middle"><img src="./images/payment/JKOPAY.png" alt="Mastercard"></td>
-                                    <td class="align-middle">JKOPAY</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div>
-                    <input type="radio" id="payment4" name="payment" value="">
-                    <label for="">信用卡付款</label>
-                    <div class="paymentDetail" id="payDetail4">
-                        <table class="table caption-top text-center">
-                            <caption>選擇付款信用卡</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">信用卡系統</th>
-                                    <th scope="col">發卡銀行</th>
-                                    <th scope="col">帳號</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="align-middle"><input type="radio" name="creditCard" id="creditCard[]" checked></th>
-                                    <td class="align-middle"><img src="./images/payment/Visa Payment Card.svg" alt="Visa"></td>
-                                    <td class="align-middle">OO銀行</td>
-                                    <td class="align-middle">1234 ****</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="align-middle"><input type="radio" name="creditCard" id="creditCard[]"></th>
-                                    <td class="align-middle"><img src="./images/payment/Mastercard New.jpg" alt="Mastercard"></td>
-                                    <td class="align-middle">OO銀行</td>
-                                    <td class="align-middle">1234 ****</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row col-md-10 mx-auto recipient">
-                <h5>收件人</h5>
-                <div>
-                    <?php
-                    //取得所有收件人資料
-                    $SQLstring = sprintf(
-                        "SELECT *, city.Name AS ctName, town.Name AS toName 
-                        FROM addbook 
-                        JOIN town ON addbook.myzip = town.Post
-                        JOIN city ON town.AutoNo = city.AutoNo
-                        WHERE emailid = %d",
-                        $_SESSION['emailid']
-                    );
-                    $addbook_rs = $link->query($SQLstring);
-                    ?>
-                    <?php if ($addbook_rs->rowCount() > 0) { ?>
-                        <?php while ($addbook_rows = $addbook_rs->fetch()) { ?>
-                            <input type="radio" name="recipientRadios" id="recipientRadios" value="<?php echo $addbook_rows['addressid'] ?>" <?php echo $addbook_rows['setdefault'] ? "checked" : ''; ?>>
-                            <label>
-                                <?php echo $addbook_rows['cname']; ?>&nbsp;
-                                <span><?php echo $addbook_rows['mobile']; ?></span>&nbsp;
-                                <span><?php echo $addbook_rows['myzip']; ?>&nbsp;<?php echo $addbook_rows['ctName']; ?></span><span><?php echo $addbook_rows['toName']; ?></span><span><?php echo $addbook_rows['address']; ?></span>
-                            </label><br>
-                        <?php }  ?>
-                    <?php } else { ?>
-                        <button type="button" class="modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            新增收件人
-                        </button>
-                    <?php } ?>
-                </div>
-                <button type="button" class="modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    新增收件人
-                </button>
-            </div>
-
-            <div class="table-responsive col-md-10 mx-auto my-4">
-                <table class="table text-center">
-                    <thead>
-                        <tr class="table-secondary">
-                            <td width="30%">商品訊息</td>
-                            <td width="15%">售價</td>
-                            <td width="15%">數量</td>
-                            <td width="20%">合計</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="align-middle productCenter">
-                                <img src="./images/product/p19-1.webp" alt="" style="width: 100px;">
-                                <span>白色餐椅</span>
-                            </td>
-                            <td class="align-middle fw-bold fs-5">$124</td>
-                            <td class="align-middle fw-bold fs-5" style="min-width: 100px;">10</td>
-                            <td class="align-middle fw-bold fs-5 subtotal">$1234</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3" class="fw-bold total border-0"></td>
-                            <td colspan="1" class="fw-bold total border-0">累計金額:<span class="totalPrice">NT$1234</span></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="fw-bold total border-0"></td>
-                            <td colspan="1" class="fw-bold total border-0">運費:<span class="totalPrice">NT$100</span></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="fw-bold total border-0"></td>
-                            <td colspan="1" class="fw-bold total border-0">總金額:<span class="totalPrice">NT$1234</span></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="fw-bold total border-0"></td>
-                            <td class="border-0" colspan="1"><button type="button" id="btn01" name="btn01" class="CheckoutBtn" onclick="window.history.go(-1)">回上一頁</button></td>
-                            <td class="border-0" colspan="1"><button type="button" id="btn02" name="btn02" class="CheckoutBtn" onclick="location.href='./checkout.php'">確認訂單</button></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-
         </div>
     </section>
     <section id="footer">
@@ -474,7 +276,39 @@ if (!isset($_SESSION['login'])) {
     <script src="./commlib.js"></script>
     <script src="./jquery.validate.js"></script>
     <script>
-        $("input[name=recipientRadios]").change(function() {
+        $('#btn02').click(function() { //結帳處理
+            let msg = "請確認結帳金額及收件人是否正確";
+            if (!confirm(msg)) {
+                return false;
+            }
+            $("#loaging").show();
+            let addressid = $("input[name=recipientRadios]:checked").val();
+            $.ajax({
+                url: "addOrder.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    addressid: addressid,
+                },
+                success: function(data) {
+                    if (data.c == true) {
+                        alert(data.m)
+                        window.location.reload();
+                    } else {
+                        alert(`Database response error:${data.m}`);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: ", status, error); // 在控制台顯示錯誤詳情
+                    alert("AJAX response error: " + xhr.status + " - " + xhr.statusText + "\n" + xhr.responseText);
+                }
+                // error: function(data) {
+                //     alert("ajax response error");
+                // }
+            });
+        });
+
+        $("input[name=recipientRadios]").change(function() { //更改地址
             var addressid = $(this).val();
             $.ajax({
                 url: "changeAddr.php",

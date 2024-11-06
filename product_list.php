@@ -1,11 +1,11 @@
 <?php
 //建立product商品查詢
-$maxRowS_rs = 12;   //分頁設定數量
+$maxRows_rs = 12;   //分頁設定數量
 $pageNum_rs = 0;    //起始頁=0
 if (isset($_GET['pageNum_rs'])) {
     $pageNum_rs = $_GET['pageNum_rs'];
 }
-$startRow_rs = $pageNum_rs * $maxRowS_rs;   //計算目前頁面開始的行數
+$startRow_rs = $pageNum_rs * $maxRows_rs;   //計算目前頁面開始的行數
 
 if (isset($_GET['search_name'])) {
     //使用關鍵字查詢
@@ -21,7 +21,7 @@ if (isset($_GET['search_name'])) {
     $queryFirst = sprintf("SELECT * FROM product, product_img WHERE p_open = 1 AND product_img.sort = 1 AND product.p_id = product_img.p_id ORDER BY product.p_id DESC");
 }
 
-$query = sprintf("%s LIMIT %d, %d", $queryFirst, $startRow_rs, $maxRowS_rs);
+$query = sprintf("%s LIMIT %d, %d", $queryFirst, $startRow_rs, $maxRows_rs);
 $pList01 = $link->query($query);
 $i = 1; //控制每列row產生
 ?>
