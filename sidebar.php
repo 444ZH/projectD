@@ -1,5 +1,4 @@
 <div class="sidebar">
-
     <?php
     //列出產品類別第一層
     $SQLstring = "SELECT * FROM pyclass WHERE level = 1 ORDER BY sort";
@@ -7,7 +6,8 @@
     $i = 1;     //控制編號順序，排版用
     ?>
     <div class="accordion accordion-flush border border-1" id="accordionFlushExample">
-        <?php while ($pyclass01_Rows = $pyclass01->fetch()) { $i = $pyclass01_Rows['classid']; ?>
+        <?php while ($pyclass01_Rows = $pyclass01->fetch()) {
+            $i = $pyclass01_Rows['classid']; ?>
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne<?php echo $i; ?>">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<?php echo $i; ?>" aria-expanded="false" aria-controls="flush-collapseOne<?php echo $i; ?>">
@@ -15,15 +15,15 @@
                     </button>
                 </h2>
                 <?php
-                if(isset($_GET['level']) && $_GET['level'] == 1){
+                if (isset($_GET['level']) && $_GET['level'] == 1) {
                     //使用第一層類別查詢
                     $ladder = $_GET['classid'];
-                }elseif(isset($_GET['classid'])){    //如果使用類別查詢需取得上一層類別
+                } elseif (isset($_GET['classid'])) {    //如果使用類別查詢需取得上一層類別
                     $SQLstring = sprintf("SELECT uplink FROM pyclass WHERE level = 2 AND classid = %d", $_GET['classid']);
-                    $classid_rs = $link -> query($SQLstring);
-                    $data = $classid_rs -> fetch();
+                    $classid_rs = $link->query($SQLstring);
+                    $data = $classid_rs->fetch();
                     $ladder = $data['uplink'];
-                }else{
+                } else {
                     $ladder = 1;
                 }
                 // 列出產品類別第二層

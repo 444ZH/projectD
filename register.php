@@ -25,7 +25,7 @@ if (isset($_SESSION['login'])) {
 
 <head>
     <!-- 引入head -->
-    <?php require_once('./headfile.php') ?>
+    <?php require_once('./headfile.php'); ?>
     <style>
         .registerTitle {
             text-align: center;
@@ -87,7 +87,7 @@ if (isset($_SESSION['login'])) {
 
 <body>
     <section id="header">
-        <?php require_once('./navbar.php') ?>
+        <?php require_once('./navbar.php'); ?>
     </section>
     <section id="seccontent">
         <div class="container">
@@ -156,10 +156,10 @@ if (isset($_SESSION['login'])) {
         </div>
     </section>
     <section id="footer">
-        <?php require_once('./footer.php') ?>
+        <?php require_once('./footer.php'); ?>
     </section>
     <!-- js file -->
-    <?php require_once('./jsfile.php') ?>
+    <?php require_once('./jsfile.php'); ?>
     <script src="./commlib.js"></script>
     <script src="./jquery.validate.js"></script>
     <script>

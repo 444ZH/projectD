@@ -13,7 +13,11 @@ if(isset($_SESSION['emailid']) && $_SESSION['emailid'] != ''){
     $addressid = $_POST['addressid'];
     $ip = $_SERVER['REMOTE_ADDR'];
     $orderid = date('YmdHis') . rand(10000, 99999); 
-    $query = sprintf("INSERT INTO uorder (orderid, emailid, addressid, howpay, paystatus, status) VALUES ('%s', %d, %d, '3', '35', '7')", $orderid, $emailid, $addressid);
+    $query = sprintf(
+        "INSERT INTO uorder (orderid, emailid, addressid, howpay, paystatus, status) 
+        VALUES ('%s', %d, %d, '3', '35', '7')",
+        $orderid, $emailid, $addressid
+    );
     $result = $link -> query($query);
     if($result){
         $query = sprintf("UPDATE cart SET orderid = '%s', emailid = %d, status = '8' WHERE ip = '%s' AND orderid is NULL", $orderid, $emailid, $ip);

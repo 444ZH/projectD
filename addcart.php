@@ -9,7 +9,12 @@ if(isset($_GET['p_id']) && isset($_GET['qty'])){
     $qty = $_GET['qty'];
     $u_ip = $_SERVER['REMOTE_ADDR'];
     //查詢是否有相同產品編號
-    $query = "SELECT * FROM cart WHERE p_id = " . $p_id . " AND ip = '".$u_ip."' AND orderid IS NULL";
+    $query = 
+    "SELECT * 
+    FROM cart 
+    WHERE p_id = " . $p_id . " 
+    AND ip = '".$u_ip."' 
+    AND orderid IS NULL";
     $result = $link -> query($query);
     if($result){
         if($result -> rowCount() == 0){

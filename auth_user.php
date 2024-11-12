@@ -11,7 +11,12 @@ if(session_status() == PHP_SESSION_NONE){
 if(isset($_POST['inputAccount']) && isset($_POST['inputPassword'])){
     $inputAccount = $_POST['inputAccount'];
     $inputPassword = $_POST['inputPassword'];
-    $query = sprintf("SELECT * FROM member WHERE email = '%s'", $inputAccount);
+    $query = sprintf(
+        "SELECT * 
+        FROM member 
+        WHERE email = '%s'", 
+        $inputAccount
+    );
     $result = $link -> query($query);
     if($result){
         if($result -> rowCount() == 1){

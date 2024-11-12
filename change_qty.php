@@ -7,7 +7,12 @@ require_once('./connection/furnitureshop_db.php');
 if(isset($_POST['cartid']) && isset($_POST['qty'])){
     $cartid = $_POST['cartid'];
     $qty = $_POST['qty'];
-    $query = sprintf("UPDATE cart SET qty = %d WHERE cart.cartid = %d", $qty, $cartid);
+    $query = sprintf(
+        "UPDATE cart 
+        SET qty = %d 
+        WHERE cart.cartid = %d",
+        $qty, $cartid
+    );
     $result = $link -> query($query);
     if($result){
         $retcode = ["c" => "1", "m" => "商品數量已更新"];

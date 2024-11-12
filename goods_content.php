@@ -1,10 +1,16 @@
 <div class="card mb-3 mt-5 border-0">
     <!-- breadcrumb -->
-    <?php require_once('./breadcrumb.php') ?>
+    <?php require_once('./breadcrumb.php'); ?>
     <div class="row g-0 mt-3">
         <div class="col-md-6 text-center">
             <?php
-            $SQLstring = sprintf("SELECT * FROM product_img WHERE product_img.p_id = %d ORDER BY sort", $_GET['p_id']);
+            $SQLstring = sprintf(
+                "SELECT * 
+                FROM product_img 
+                WHERE product_img.p_id = %d 
+                ORDER BY sort", 
+                $_GET['p_id']
+            );
             $img_rs = $link->query($SQLstring);
             $imgList = $img_rs->fetch();
             ?>

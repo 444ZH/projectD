@@ -14,7 +14,7 @@ require_once("./php_lib.php");  //分頁功能
 
 <head>
     <!-- 引入head -->
-    <?php require_once('./headfile.php') ?>
+    <?php require_once('./headfile.php'); ?>
     <style>
         .stepNum {
             height: 30px;
@@ -110,19 +110,19 @@ require_once("./php_lib.php");  //分頁功能
 
 <body>
     <section id="header">
-        <?php require_once('./navbar.php') ?>
+        <?php require_once('./navbar.php'); ?>
     </section>
     <section id="seccontent">
         <div class="container" style="height: 70vh;">
             <!-- goods_content -->
-            <?php require_once('./cart_content.php') ?>
+            <?php require_once('./cart_content.php'); ?>
         </div>
     </section>
     <section id="footer">
-        <?php require_once('./footer.php') ?>
+        <?php require_once('./footer.php'); ?>
     </section>
     <!-- js file -->
-    <?php require_once('./jsfile.php') ?>
+    <?php require_once('./jsfile.php'); ?>
     <script>
         //將商品變更數量寫進資料庫
         $('input').change(function() {

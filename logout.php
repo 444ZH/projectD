@@ -1,5 +1,7 @@
 <?php
-(!isset($_SESSION) ? session_start() : '');
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 $_SESSION['login'] = null;
 $_SESSION['emailid'] = null;
 $_SESSION['email'] = null;

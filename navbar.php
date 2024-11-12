@@ -4,11 +4,10 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <?php
         //讀取後台購物車內產品數量
-        $SQLstring = "SELECT * FROM cart WHERE orderid IS NULL AND ip = '".$_SERVER['REMOTE_ADDR']."'";
-        $cart_rs = $link -> query($SQLstring);
+        $SQLstring = "SELECT * FROM cart WHERE orderid IS NULL AND ip = '" . $_SERVER['REMOTE_ADDR'] . "'";
+        $cart_rs = $link->query($SQLstring);
         // 列出產品類別第一層
         $SQLstring = "SELECT * FROM pyclass WHERE level = 1 ORDER BY sort";
         $pyclass01 = $link->query($SQLstring);
@@ -64,20 +63,23 @@
                         <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button></span>
                     </div>
                 </form>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="./cart.php"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="badge rounded-pill text-bg-dark"><?php echo ($cart_rs) ? $cart_rs -> rowCount() : ''; ?></span></a>
+                    <a class="nav-link" href="./cart.php"><i class="fa-solid fa-cart-shopping fa-lg"></i><span class="badge rounded-pill text-bg-dark"><?php echo ($cart_rs) ? $cart_rs->rowCount() : ''; ?></span></a>
                 </li>
-                <?php if(isset($_SESSION['login'])) { ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="btn_confirmLink('是否確定登出?','logout.php')">登出</a>
-                </li>
-                <?php }else{ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="./login.php"><i class="fa-regular fa-user fa-lg"></i></a>
-                </li>
+                <?php if (isset($_SESSION['login'])) { ?>
+                    <li class="nav-item dropdown userDropdown">
+                    <a class="nav-link" href=""><i class="fa-regular fa-user fa-lg"></i></a>
+                    <div class="dropdown-menu userDropdown">
+                        <a href="./orderlist.php" class="dropdown-item">所有訂單</a>
+                        <a href="./myaccount.php" class="dropdown-item">修改個人資料</a>
+                        <a href="#" class="dropdown-item" onclick="btn_confirmLink('確認是否登出', 'logout.php')">登出</a>
+                    </div>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.php"><i class="fa-regular fa-user fa-lg"></i></a>
+                    </li>
                 <?php } ?>
-
             </ul>
         </div>
     </div>

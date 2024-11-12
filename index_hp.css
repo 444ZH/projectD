@@ -28,6 +28,7 @@ nav.navbar.navbar-expand-lg {
   font-weight: bold;
 }
 
+/* 產品、服務支援dropdown */
 .dropdown:hover>.dropdown-menu
 {
   display: block;
@@ -38,6 +39,16 @@ nav.navbar.navbar-expand-lg {
   position: absolute;
   top: 0;
   left: 100%;
+}
+
+.dropdown .dropdown-menu{
+  display: none;
+}
+/* 使用者登出dropdown */
+.dropdown.userDropdown:hover>.dropdown-menu.userDropdown
+{
+  display: block;
+  left: -350%;
 }
 
 .dropdown .dropdown-menu{

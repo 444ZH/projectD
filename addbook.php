@@ -14,7 +14,13 @@ if(isset($_SESSION['emailid']) && $_SESSION['emailid'] != ''){
     $mobile = $_POST['mobile'];
     $myZip = $_POST['myZip'];
     $address = $_POST['address'];
-    $query = sprintf("UPDATE addbook SET setdefault = '0' WHERE emailid = %d AND setdefault = '1'", $emailid);
+    $query = sprintf(
+        "UPDATE addbook 
+        SET setdefault = '0' 
+        WHERE emailid = %d 
+        AND setdefault = '1'", 
+        $emailid
+    );
     $result = $link ->query($query);
     $query = "INSERT INTO addbook (setdefault, emailid, cname, mobile, myZip, address) VALUES ('1', '".$emailid."', '".$cname."', '".$mobile."', '".$myZip."', '".$address."')";
     $result = $link -> query($query);

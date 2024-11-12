@@ -1,5 +1,6 @@
-<?php require_once('./connection/furnitureshop_db.php'); ?>
-<?php
+<?php 
+require_once('./connection/furnitureshop_db.php'); 
+
 if(isset($_GET['mode']) && $_GET['mode'] != ''){
     $mode = $_GET['mode'];
     switch($mode){

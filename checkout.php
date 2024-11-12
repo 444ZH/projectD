@@ -18,7 +18,7 @@ if (!isset($_SESSION['login'])) {
 
 <head>
     <!-- 引入head -->
-    <?php require_once('./headfile.php') ?>
+    <?php require_once('./headfile.php'); ?>
     <style>
         .stepNum {
             height: 30px;
@@ -156,17 +156,16 @@ if (!isset($_SESSION['login'])) {
 
 <body>
     <section id="header">
-        <?php require_once('./navbar.php') ?>
+        <?php require_once('./navbar.php'); ?>
     </section>
     <section id="seccontent">
         <div class="container">
             <!-- goods_content -->
-            <?php require_once('./checkout_content.php') 
-            ?>
+            <?php require_once('./checkout_content.php'); ?>
         </div>
     </section>
     <section id="footer">
-        <?php require_once('./footer.php') ?>
+        <?php require_once('./footer.php'); ?>
     </section>
 
     <!-- Modal -->
@@ -272,7 +271,7 @@ if (!isset($_SESSION['login'])) {
         <span class="visually-hidden fs-2" style="position: absolute; top: 50%; left: 50%;">Loading...</span>
     </div>
     <!-- js file -->
-    <?php require_once('./jsfile.php') ?>
+    <?php require_once('./jsfile.php'); ?>
     <script src="./commlib.js"></script>
     <script src="./jquery.validate.js"></script>
     <script>
