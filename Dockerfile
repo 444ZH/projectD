@@ -31,6 +31,7 @@ RUN echo '<VirtualHost *:80>\n\
         AllowOverride All\n\
         Require all granted\n\
     </Directory>\n\
+    Alias /health /var/www/html/health.php\n\
 </VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
 #設定檔案權限
