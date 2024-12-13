@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json;charset=utf-8");
 
-require_once("./connection/furnitureshop_db.php");
+require_once('./connection/furnitureshop_db_example.php');
 
 $Town = sprintf("SELECT * FROM town WHERE AutoNo = %d", $_POST['CNo']);
 $Town_rs = $link->query($Town);
@@ -18,4 +18,3 @@ if ($Town_num > 0) {
 }
 echo json_encode($retcode, JSON_UNESCAPED_UNICODE);
 return;
-?>

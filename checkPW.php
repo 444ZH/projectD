@@ -1,5 +1,5 @@
 <?php
-include_once('./connection/furnitureshop_db.php');
+include_once('./connection/furnitureshop_db_example.php');
 
 if (isset($_GET['emailid'])) {
     $emailid = $_GET['emailid'];
@@ -24,4 +24,3 @@ if (isset($_GET['emailid'])) {
 }
 echo 'false';
 return;
-?>

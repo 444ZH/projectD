@@ -1,5 +1,4 @@
 <div class="drop-box">
-
     <meta itemprop="description"
         content="可將椅子堆疊收納，不用時也不佔空間">
     <p></p>

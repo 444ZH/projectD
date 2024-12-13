@@ -1,6 +1,6 @@
 <?php
 //連資料庫
-require_once('connection/furnitureshop_db.php');
+require_once('./connection/furnitureshop_db_example.php');
 //如果session沒有啟動則啟動，跨頁面存取變數
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

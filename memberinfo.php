@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json;charset=utf-8");
 
-require_once('./connection/furnitureshop_db.php');
+require_once('./connection/furnitureshop_db_example.php');
 
 
 if (isset($_GET['emailid']) && $_GET['emailid'] != '') {

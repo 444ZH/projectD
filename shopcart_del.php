@@ -1,9 +1,9 @@
-<?php 
-require_once('./connection/furnitureshop_db.php'); 
+<?php
+require_once('./connection/furnitureshop_db_example.php');
 
-if(isset($_GET['mode']) && $_GET['mode'] != ''){
+if (isset($_GET['mode']) && $_GET['mode'] != '') {
     $mode = $_GET['mode'];
-    switch($mode){
+    switch ($mode) {
         case 1:
             //使用購物車編號刪除內容
             $SQLstring = sprintf(" DELETE FROM cart WHERE cartid = %d AND orderid IS NULL", $_GET['cartid']);
@@ -13,8 +13,7 @@ if(isset($_GET['mode']) && $_GET['mode'] != ''){
             $SQLstring = sprintf("DELETE FROM cart WHERE ip = '%s' AND orderid IS NULL", $_SERVER['REMOTE_ADDR']);
             break;
     }
-    $result = $link ->query($SQLstring);
+    $result = $link->query($SQLstring);
 }
 $deleteGoto = "cart.php";
 header(sprintf("location: %s", $deleteGoto));
-?>

@@ -2,45 +2,44 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json;charset=utf-8");
 
-require_once('./connection/furnitureshop_db.php');
+require_once('./connection/furnitureshop_db_example.php');
 
-if(session_status() == PHP_SESSION_NONE){
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if(isset($_POST['inputAccount']) && isset($_POST['inputPassword'])){
+if (isset($_POST['inputAccount']) && isset($_POST['inputPassword'])) {
     $inputAccount = $_POST['inputAccount'];
     $inputPassword = $_POST['inputPassword'];
     $query = sprintf(
         "SELECT * 
         FROM member 
-        WHERE email = '%s'", 
+        WHERE email = '%s'",
         $inputAccount
     );
-    $result = $link -> query($query);
-    if($result){
-        if($result -> rowCount() == 1){
-            $data = $result -> fetch();
-            if(password_verify($inputPassword, $data["pw1"])){
-                if($data['active']){
+    $result = $link->query($query);
+    if ($result) {
+        if ($result->rowCount() == 1) {
+            $data = $result->fetch();
+            if (password_verify($inputPassword, $data["pw1"])) {
+                if ($data['active']) {
                     $_SESSION['login'] = true;
                     $_SESSION['emailid'] = $data['emailid'];
                     $_SESSION['email'] = $data['email'];
                     $_SESSION['cname'] = $data['cname'];
                     $retcode = ["c" => "1", "m" => "會員驗證成功"];
-                }else{
+                } else {
                     $retcode = ["c" => "2", "m" => "會員帳號被鎖定!請聯絡管理人員"];
                 }
-            }else{
+            } else {
                 $retcode = ["c" => "2", "m" => "帳號或密碼錯誤，請重新輸入"];
             }
-        }else{
+        } else {
             $retcode = ["c" => "2", "m" => "帳號或密碼錯誤，請重新輸入"];
         }
-    }else{
+    } else {
         $retcode = ["c" => "0", "m" => "會員驗證失敗，請聯絡管理人員"];
     }
     echo json_encode($retcode, JSON_UNESCAPED_UNICODE);
 }
 return;
-?>

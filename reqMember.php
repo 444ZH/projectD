@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
-require_once('./connection/furnitureshop_db.php');
+require_once('./connection/furnitureshop_db_example.php');
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -45,10 +45,10 @@ if (isset($_GET['emailid']) && $_GET['emailid'] != '') {
             } else {
                 $retcode = ["c" => false, "m" => "資料無法寫入資料庫，請聯絡管理員"];
             }
-        }else{
-             $retcode = ["c" => false, "m" => "找不到對應的創建時間"];
+        } else {
+            $retcode = ["c" => false, "m" => "找不到對應的創建時間"];
         }
-    }else{
+    } else {
         $retcode = ["c" => false, "m" => "無法查詢最早的創建時間"];
     }
     echo json_encode($retcode, JSON_UNESCAPED_UNICODE);

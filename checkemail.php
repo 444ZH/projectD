@@ -1,5 +1,5 @@
 <?php
-include_once('./connection/furnitureshop_db.php');
+include_once('./connection/furnitureshop_db_example.php');
 if (isset($_GET['email'])) {
     $email = $_GET['email'];
     $query =
