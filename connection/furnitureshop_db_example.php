@@ -1,6 +1,6 @@
 <?php
 try {
-    $db_host = getenv('DB_HOST') ?: 'localhost';
+    $db_host = getenv('DB_HOST') ?: '127.0.0.1';
     $db_name = getenv('DB_NAME') ?: 'furnitureshop';
     $db_user = getenv('DB_USERNAME');
     $db_password = getenv('DB_PASSWORD');
