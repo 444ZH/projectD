@@ -1,11 +1,14 @@
 <?php
 try {
-    $dsn = "mysql:host=localhost;dbname=furnitureshop;charset=utf8mb4";
-    $user = "";
-    $password = "";
+    $db_host = getenv('DB_HOST') ?: 'localhost';
+    $db_name = getenv('DB_NAME') ?: 'furnitureshop';
+    $db_user = getenv('DB_USERNAME');
+    $db_password = getenv('DB_PASSWORD');
 
-    //建立PDO
-    $link = new PDO($dsn, $user, $password);
+    $dsn = "mysql:host={$db_host};dbname={$db_name};charset=utf8mb4";
+
+    // 建立PDO連線
+    $link = new PDO($dsn, $db_user, $db_password);
 
     //設置錯誤模式為異常
     $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -16,4 +19,3 @@ try {
     error_log("連線錯誤: " . $e->getMessage());
     exit("資料庫連線失敗");
 }
-?>
