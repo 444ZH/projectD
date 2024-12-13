@@ -1,9 +1,10 @@
 <?php
 try {
-    $db_host = getenv('DB_HOST') ?: '127.0.0.1';
-    $db_name = getenv('DB_NAME') ?: 'furnitureshop';
+    $db_host = getenv('DB_HOST');
+    $db_name = getenv('DB_NAME');
     $db_user = getenv('DB_USERNAME');
     $db_password = getenv('DB_PASSWORD');
+    $db_port = getenv('DB_PORT');
 
     $dsn = "mysql:host={$db_host};dbname={$db_name};charset=utf8mb4";
 
