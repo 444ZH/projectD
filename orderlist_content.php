@@ -143,7 +143,7 @@ $prev_rs = "&laquo;";
 $next_rs = "&raquo;";
 $separator = "|";
 $max_links = 20;
-$pages_rs = buildNavigation($pageNum_rs, $totalRows_rs, $prev_rs, $next_rs, $separator, $max_links, true, 3, "order_rs");
+$pages_rs = buildNavigation($pageNum_rs, $totalRows_rs, $prev_rs, $next_rs, "rs", $separator, $max_links, true, 3);
 ?>
 <nav aria-label="Page navigation example">
     <ul class="newpagination justify-content-center my-4">
