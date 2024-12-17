@@ -141,9 +141,6 @@
             </button>
         <?php } ?>
     </div>
-    <button type="button" class="modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        新增收件人
-    </button>
 </div>
 <div class="table-responsive col-md-10 mx-auto my-4">
     <table class="table text-center">
@@ -178,7 +175,7 @@
                     <td class="align-middle fw-bold fs-5">$<?php echo number_format($cart_data['p_price']); ?></td>
                     <td class="align-middle fw-bold fs-5" style="min-width: 100px;"><?php echo $cart_data['qty']; ?></td>
                     <?php $pTotal += $cart_data['p_price'] * $cart_data['qty']; ?>
-                    <td class="align-middle fw-bold fs-5 color_red">$<?php echo number_format($cart_data['p_price']*$cart_data['qty']); ?></td>
+                    <td class="align-middle fw-bold fs-5 color_red">$<?php echo number_format($cart_data['p_price'] * $cart_data['qty']); ?></td>
                 </tr>
             <?php  } ?>
         </tbody>

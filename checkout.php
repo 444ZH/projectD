@@ -276,6 +276,15 @@ if (!isset($_SESSION['login'])) {
     <script src="./jquery.validate.js"></script>
     <script>
         $('#btn02').click(function() { //結帳處理
+            let selectedRecipient = $("input[name=recipientRadios]:checked").val();
+
+            let hasRecipient = $("input[name=recipientRadios]").length > 0;
+            if (!hasRecipient) {
+                alert('請先新增收件人!');
+                $("#exampleModal").modal('show');
+                return false;
+            }
+
             let msg = "請確認結帳金額及收件人是否正確";
             if (!confirm(msg)) {
                 return false;
@@ -292,18 +301,14 @@ if (!isset($_SESSION['login'])) {
                 success: function(data) {
                     if (data.c == true) {
                         alert(data.m)
-                        window.location.reload();
+                        window.location.href = 'settlement.php';
                     } else {
                         alert(`Database response error:${data.m}`);
                     }
                 },
-                error: function(xhr, status, error) {
-                    console.error("AJAX Error: ", status, error); // 在控制台顯示錯誤詳情
-                    alert("AJAX response error: " + xhr.status + " - " + xhr.statusText + "\n" + xhr.responseText);
+                error: function(data) {
+                    alert("ajax response error");
                 }
-                // error: function(data) {
-                //     alert("ajax response error");
-                // }
             });
         });
 

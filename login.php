@@ -127,10 +127,24 @@ if (isset($_SESSION['login'])) {
     <?php require_once('./jsfile.php'); ?>
     <script>
         $(function() {
-            $("#form1").submit(function() {
+            $("#form1").submit(function(event) {
+                event.preventDefault();
+
                 const inputAccount = $("#inputAccount").val();
                 const inputPassword = $("#inputPassword").val();
+
+                if (!inputAccount) {
+                    alert('請輸入電子信箱');
+                    return false;
+                }
+
+                if (!inputPassword) {
+                    alert('請輸入密碼');
+                    return false;
+                }
+
                 $("#loading").show();
+
                 //利用$ajax函數呼叫後台auth_user.php驗證帳號密碼
                 $.ajax({
                     url: "auth_user.php",
@@ -141,6 +155,7 @@ if (isset($_SESSION['login'])) {
                         inputPassword: inputPassword,
                     },
                     success: function(data) {
+                        $("#loading").hide();
                         if (data.c == true) {
                             alert(data.m);
                             window.location.href = "<?php echo $sPath; ?>";
