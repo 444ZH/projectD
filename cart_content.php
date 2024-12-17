@@ -69,7 +69,7 @@ $ptotal = 0;    //設定累計總金額，初始為0
                 <tr class="table-secondary">
                     <td><button type="button" id="btn01" name="btn01" class="clearCartBtn" onclick="btn_confirmLink('確定清空購物車?','shopcart_del.php?mode=2')">清空購物車</button></td>
                     <td colspan="3" class="fw-bold total">總金額(不含運費):<span class="totalPrice">NT$<?php echo number_format($ptotal); ?></span></td>
-                    <td><button type="button" id="btn02" name="btn02" class="CheckoutBtn" onclick="location.href='./checkout.php'">結帳</button></td>
+                    <td><button type="button" id="btn02" name="btn02" class="CheckoutBtn">結帳</button></td>
                 </tr>
             </tfoot>
         </table>

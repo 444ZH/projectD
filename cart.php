@@ -124,6 +124,10 @@ require_once("./php_lib.php");  //分頁功能
     <!-- js file -->
     <?php require_once('./jsfile.php'); ?>
     <script>
+        document.querySelector('#btn02').addEventListener("click", function() {
+            window.location.href = 'checkout.php';
+        });
+
         //將商品變更數量寫進資料庫
         $('input').change(function() {
             var qty = $(this).val();
