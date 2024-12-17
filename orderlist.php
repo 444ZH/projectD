@@ -10,7 +10,7 @@ require_once("./php_lib.php");  //分頁功能
 
 //檢查是否完成登入驗證
 if (!isset($_SESSION['login'])) {
-    $sPath = "login.php ? sPath = orderlist1";
+    $sPath = "login.php?sPath=orderlist1";
     header(sprintf("location: %s", $sPath));
 }
 ?>

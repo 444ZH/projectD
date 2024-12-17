@@ -7,8 +7,9 @@ if (!isset($_SESSION)) {
 }
 // 載入共用PHP函數庫
 require_once("./php_lib.php");  //分頁功能
+
 if (!isset($_SESSION['login'])) {
-    $sPath = "login.php ? sPath=checkout";
+    $sPath = "login.php?sPath=checkout";
     header(sprintf("location: %s", $sPath));
 }
 ?>
